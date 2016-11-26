@@ -36,28 +36,28 @@ public class BackendHttpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("application/json");
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setContentType("application/json");
 
-        ObjectMapper mapper = new ObjectMapper();
-        String greeting = req.getParameter("greeting");
+		ObjectMapper mapper = new ObjectMapper();
+		String greeting = req.getParameter("greeting");
 
-        ResponseDTO response = new ResponseDTO();
-        response.setGreeting(greeting + " from cluster Backend");
-        response.setTime(System.currentTimeMillis());
-        response.setIp(getIp());
+		ResponseDTO response = new ResponseDTO();
+		response.setGreeting(greeting + " from cluster Backend");
+		response.setTime(System.currentTimeMillis());
+		response.setIp(getIp());
 
-        PrintWriter out = resp.getWriter();
-        mapper.writerWithDefaultPrettyPrinter().writeValue(out, response);
-    }
+		PrintWriter out = resp.getWriter();
+		mapper.writerWithDefaultPrettyPrinter().writeValue(out, response);
+	}
 
-    private String getIp() {
-        String hostname = null;
-        try {
-            hostname = InetAddress.getLocalHost().getHostAddress();
-        } catch (UnknownHostException e) {
-            hostname = "unknown";
-        }
-        return hostname;
-    }
+	private String getIp() {
+		String hostname = null;
+		try {
+			hostname = InetAddress.getLocalHost().getHostAddress();
+		} catch (UnknownHostException e) {
+			hostname = "unknown";
+		}
+		return hostname;
+	}
 }

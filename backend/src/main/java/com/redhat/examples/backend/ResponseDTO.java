@@ -21,6 +21,7 @@ package com.redhat.examples.backend;
  * <a href="http://christianposta.com/blog>http://christianposta.com/blog</a>.
  */
 public class ResponseDTO {
+
     private String greeting;
     private long time;
     private String ip;
