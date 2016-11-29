@@ -50,7 +50,6 @@
 		<fabric8.env.GREETER_BACKEND_PORT>80</fabric8.env.GREETER_BACKEND_PORT>
 
 		<fabric8.env.USE_KUBERNETES_DISCOVERY>true</fabric8.env.USE_KUBERNETES_DISCOVERY>
-
 	</properties>
 
 	<dependencyManagement>
@@ -106,6 +105,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.4.0</version>
 				<configuration>
 					<mainClass>com.redhat.examples.dropwizard.HolaDropwizardApplication</mainClass>
 					<arguments>

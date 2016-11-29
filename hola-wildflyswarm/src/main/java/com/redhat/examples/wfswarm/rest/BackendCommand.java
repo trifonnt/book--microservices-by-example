@@ -77,6 +77,4 @@ public class BackendCommand extends HystrixCommand<BackendDTO> {
         rc.setTime(System.currentTimeMillis());
         return rc;
     }
-
-
 }

@@ -1,13 +1,12 @@
 package com.redhat.examples.wfswarm.rest;
 
-import org.apache.deltaspike.core.api.config.ConfigProperty;
-
-import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.ws.rs.Path;
-import javax.ws.rs.core.Response;
 import javax.ws.rs.GET;
+import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
+
+import org.apache.deltaspike.core.api.config.ConfigProperty;
 
 @Path("/api/hola")
 public class HolaResource {

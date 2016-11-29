@@ -16,17 +16,7 @@
  */
 package com.redhat.examples.wfswarm.rest;
 
-import com.netflix.client.config.DefaultClientConfigImpl;
-import com.netflix.client.config.IClientConfig;
-import com.netflix.loadbalancer.ILoadBalancer;
-import com.netflix.loadbalancer.LoadBalancerBuilder;
-import com.netflix.loadbalancer.Server;
-import com.netflix.loadbalancer.ServerList;
-import com.netflix.loadbalancer.reactive.LoadBalancerCommand;
-import com.netflix.loadbalancer.reactive.ServerOperation;
-import io.fabric8.kubeflix.ribbon.KubernetesServerList;
-import org.apache.deltaspike.core.api.config.ConfigProperty;
-import rx.Observable;
+import java.util.Arrays;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -34,9 +24,19 @@ import javax.ws.rs.Path;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.MediaType;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.Arrays;
+
+import org.apache.deltaspike.core.api.config.ConfigProperty;
+
+import com.netflix.client.config.DefaultClientConfigImpl;
+import com.netflix.client.config.IClientConfig;
+import com.netflix.loadbalancer.ILoadBalancer;
+import com.netflix.loadbalancer.LoadBalancerBuilder;
+import com.netflix.loadbalancer.Server;
+import com.netflix.loadbalancer.reactive.LoadBalancerCommand;
+import com.netflix.loadbalancer.reactive.ServerOperation;
+
+import io.fabric8.kubeflix.ribbon.KubernetesServerList;
+import rx.Observable;
 
 /**
  * Created by ceposta 
@@ -82,7 +82,7 @@ public class GreeterResource {
     @Path("/greeting")
     @GET
     public String greeting() {
-        String backendServiceUrl = String.format("http://%s:%d",  backendServiceHost,backendServicePort);
+        String backendServiceUrl = String.format("http://%s:%d", backendServiceHost, backendServicePort);
         System.out.println("Sending to: " + backendServiceUrl);
 
         Client client = ClientBuilder.newClient();

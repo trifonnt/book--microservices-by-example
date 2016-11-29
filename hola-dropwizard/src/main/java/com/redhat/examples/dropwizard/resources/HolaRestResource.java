@@ -37,7 +37,7 @@ public class HolaRestResource {
     @Path("/hola")
     @GET
     @Timed
-    public String hola() throws UnknownHostException {
+    public String hola() {
         String hostname = null;
         try {
             hostname = InetAddress.getLocalHost().getHostAddress();
